@@ -70,3 +70,22 @@ a { color: var(--blue); }
 .site-footer { background: var(--wood); color: var(--cream); padding-block: 2.5rem; }
 .site-footer .logo { color: var(--gold); }
 .site-footer p { margin: .3rem 0; }
+
+/* Calendar and checkout states */
+.cal-nav { display: flex; justify-content: space-between; margin-bottom: .5rem; }
+.cal-nav button { background: var(--blue); color: #fff; border: 0; border-radius: .4rem; padding: .4rem .9rem; font-size: 1.1rem; cursor: pointer; }
+.cal-nav button:disabled { opacity: .4; cursor: not-allowed; }
+.months { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1.5rem; }
+.month h3 { text-align: center; margin: 0 0 .5rem; }
+.days { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; }
+.dow { text-align: center; font-size: .8rem; color: var(--ink); }
+.day { aspect-ratio: 1; min-height: 2.2rem; border: 2px solid transparent; border-radius: .4rem; font: inherit; cursor: pointer; }
+.day.free { background: var(--blue); color: #fff; }
+.day.free:hover { background: var(--blue-dark); }
+.day.taken { background: #d9d2c3; color: #5c4a3c; text-decoration: line-through; cursor: not-allowed; }
+.day.taken:not(:disabled) { cursor: pointer; }
+.day.past { background: transparent; color: #6b5d52; opacity: .6; cursor: not-allowed; }
+.day.selected { background: var(--gold); color: var(--ink); border-color: var(--ink); font-weight: 700; }
+.day:focus-visible, .cal-nav button:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+#range-summary { font-weight: 600; }
+#form-msg { color: #8a1c1c; font-weight: 600; margin: 0; }
