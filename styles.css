@@ -1,0 +1,71 @@
+:root {
+  --olive: #7a8a1f;
+  --olive-dark: #55621a;
+  --blue: #1f55b8;
+  --blue-dark: #173f8c;
+  --gold: #c9a24a;
+  --wood: #5a3d2b;
+  --cream: #fbf7ee;
+  --sand: #f1e9d6;
+  --serif: Georgia, "Times New Roman", serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body { margin: 0; font-family: var(--sans); color: var(--wood); background: var(--cream); line-height: 1.6; }
+img { max-width: 100%; display: block; }
+h1, h2, h3, .logo { font-family: var(--serif); color: var(--olive-dark); line-height: 1.2; }
+h2 { font-size: clamp(1.7rem, 4vw, 2.4rem); margin: 0 0 1.5rem; }
+h3 { margin: 0 0 .5rem; }
+a { color: var(--blue); }
+
+.wrap { max-width: 1100px; margin: 0 auto; padding-inline: 16px; }
+.section { padding-block: clamp(2.5rem, 7vw, 5rem); }
+.band { background: var(--sand); }
+.center { text-align: center; margin-top: 2rem; }
+.lead { font-size: 1.1rem; margin-top: -.75rem; }
+
+.btn { display: inline-block; background: var(--blue); color: #fff; padding: .7rem 1.4rem; border: 0; border-radius: 999px; font: 600 1rem var(--sans); text-decoration: none; cursor: pointer; }
+.btn:hover { background: var(--blue-dark); }
+.btn-gold { background: var(--gold); color: var(--wood); padding: .9rem 2rem; font-size: 1.1rem; }
+.btn-gold:hover { background: #b88f38; }
+.link-btn { background: none; border: 0; padding: 0; font: .85rem var(--sans); color: var(--wood); text-decoration: underline; cursor: pointer; }
+
+.site-header { position: sticky; top: 0; z-index: 10; background: var(--cream); border-bottom: 2px solid var(--gold); }
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: .7rem; }
+.logo { font-size: 1.35rem; font-weight: 700; text-decoration: none; margin: 0; }
+
+.hero { position: relative; min-height: 70vh; display: flex; align-items: flex-end; color: #fff; }
+.hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(40, 28, 18, .8), rgba(40, 28, 18, .1) 70%); }
+.hero-text { position: relative; z-index: 1; padding-block: 3rem; }
+.hero h1 { color: #fff; font-size: clamp(2.1rem, 6vw, 3.8rem); margin: 0 0 1rem; max-width: 14em; }
+.eyebrow { color: var(--gold); text-transform: uppercase; letter-spacing: .15em; font-weight: 600; font-size: .85rem; margin: 0 0 .5rem; }
+.price { font-size: 1.1rem; margin: 0 0 1.5rem; }
+.price strong { color: var(--gold); font-family: var(--serif); font-size: 1.8rem; }
+
+.grid { display: grid; gap: 1.25rem; }
+.cards { grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); }
+.card { background: #fff; border-top: 4px solid var(--olive); border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 10px rgba(90, 61, 43, .1); }
+.card p { margin: 0 0 1rem; }
+.card a { font-weight: 600; }
+
+.gallery { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+.gallery figure { margin: 0; }
+.gallery img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 8px; }
+.gallery figcaption { padding-top: .5rem; font-size: .95rem; }
+
+.amenities { list-style: none; margin: 0; padding: 0; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); }
+.amenities li { padding: 1rem 1rem 1rem 1.25rem; background: #fff; border-left: 4px solid var(--gold); border-radius: 4px; }
+
+#book form, #pay-step, #confirm-step { background: #fff; border-radius: 8px; padding: 1.5rem; margin-top: 1.5rem; max-width: 520px; }
+#book label { display: block; margin-bottom: 1rem; font-weight: 600; }
+#book input[type=text], #book input[type=email], #book input[type=tel], #book input[type=number] { display: block; width: 100%; margin-top: .3rem; padding: .6rem; font: 1rem var(--sans); border: 1px solid #bba98f; border-radius: 6px; }
+#book label.radio { font-weight: 400; margin-bottom: .5rem; }
+#book fieldset { border: 1px solid #bba98f; border-radius: 6px; margin: 0 0 1rem; }
+.demo-label { display: inline-block; background: var(--gold); color: var(--wood); font-weight: 700; padding: .25rem .75rem; border-radius: 4px; }
+#range-summary { min-height: 1.5em; font-weight: 600; }
+
+.site-footer { background: var(--wood); color: var(--cream); padding-block: 2.5rem; }
+.site-footer .logo { color: var(--gold); }
+.site-footer p { margin: .3rem 0; }

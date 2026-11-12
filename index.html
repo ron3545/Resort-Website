@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bacaress Villa | Private villa with indoor pool and jacuzzi</title>
+<meta name="description" content="Rent the whole Bacaress Villa privately: indoor pool with jacuzzi, bright living area and terrace. PHP 15,000 per night.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="logo" href="#top">Bacaress Villa</a>
+    <a class="btn" href="#book">Book now</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <img src="images/4.jpg" alt="Indoor pool with blue mosaic tiles and a raised jacuzzi in a bright, plant-filled hall" fetchpriority="high">
+    <div class="hero-text wrap">
+      <p class="eyebrow">Private villa getaway</p>
+      <h1>Your own pool, your own villa.</h1>
+      <p class="price"><strong>₱15,000</strong> per night &middot; whole villa &middot; private, one group per booking</p>
+      <a class="btn btn-gold" href="#book">Book now</a>
+    </div>
+  </section>
+
+  <section class="wrap section" id="perfect-for">
+    <h2>Perfect for&hellip;</h2>
+    <div class="grid cards">
+      <article class="card"><h3>Birthdays</h3><p>Blow out the candles, then jump in the pool. Celebrate your way.</p><a href="#book">Pick your date</a></article>
+      <article class="card"><h3>Friends / Barkada</h3><p>Karaoke, swims and late-night kwentuhan, all in one private place.</p><a href="#book">Pick your date</a></article>
+      <article class="card"><h3>Family reunions</h3><p>Plenty of space for tita, lolo and the kids to relax together.</p><a href="#book">Pick your date</a></article>
+      <article class="card"><h3>Small events</h3><p>Intimate gatherings with a bright hall and a pool as the backdrop.</p><a href="#book">Pick your date</a></article>
+    </div>
+    <p class="center"><a class="btn" href="#book">Book now</a></p>
+  </section>
+
+  <section class="band" id="gallery">
+    <div class="wrap section">
+      <h2>Take a look inside</h2>
+      <div class="grid gallery">
+        <figure><img src="images/1.jpg" alt="Bedroom with a queen bed and two bunk beds" loading="lazy"><figcaption>Bedroom: queen bed + two bunk beds</figcaption></figure>
+        <figure><img src="images/2.jpg" alt="Bright living area with a grey sofa, red armchair and tall windows with curtains" loading="lazy"><figcaption>Bright living area</figcaption></figure>
+        <figure><img src="images/3.jpg" alt="Terrace with a view of the garden" loading="lazy"><figcaption>Terrace with garden view</figcaption></figure>
+        <figure><img src="images/4.jpg" alt="Indoor swimming pool with jacuzzi" loading="lazy"><figcaption>Indoor pool + jacuzzi</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section" id="amenities">
+    <h2>What's included</h2>
+    <ul class="grid amenities">
+      <li>Indoor pool with jacuzzi</li>
+      <li>Bedroom with queen bed and two bunk beds</li>
+      <li>Bright living area</li>
+      <li>Terrace with garden view</li>
+      <li>Up to 10 guests (placeholder)</li>
+      <li>Check-in 2:00 PM / check-out 12:00 PM (placeholder)</li>
+    </ul>
+  </section>
+
+  <section class="band" id="book">
+    <div class="wrap section">
+      <h2>Book your stay</h2>
+      <p class="lead">₱15,000 per night for the whole villa. Pick your check-in and check-out dates.</p>
+      <div id="calendar"></div>
+      <p id="range-summary" aria-live="polite"></p>
+
+      <form id="booking-form" hidden>
+        <h3>Your details</h3>
+        <label>Full name <input type="text" name="name" required autocomplete="name"></label>
+        <label>Email <input type="email" name="email" required autocomplete="email"></label>
+        <label>Phone <input type="tel" name="phone" required autocomplete="tel"></label>
+        <label>Number of guests <input type="number" name="guests" min="1" required></label>
+        <button class="btn" type="submit">Continue to payment</button>
+      </form>
+
+      <div id="pay-step" hidden>
+        <h3>Payment</h3>
+        <p class="demo-label">Demo only, no real payment</p>
+        <fieldset>
+          <legend>Payment method</legend>
+          <label class="radio"><input type="radio" name="method" value="gcash" checked> GCash</label>
+          <label class="radio"><input type="radio" name="method" value="card"> Card</label>
+          <label class="radio"><input type="radio" name="method" value="bank"> Bank transfer</label>
+        </fieldset>
+        <button class="btn" type="button" id="pay-btn">Pay</button>
+      </div>
+
+      <div id="confirm-step" hidden>
+        <h3>Booking confirmed (demo)</h3>
+        <p>Your reference number: <strong id="ref"></strong></p>
+      </div>
+
+      <p><button type="button" id="reset-demo" class="link-btn">Reset demo</button></p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="logo">Bacaress Villa</p>
+    <p>Location: Philippines, exact address to be announced (placeholder)</p>
+    <p>Contact: +63 900 000 0000 (placeholder)</p>
+    <p>Up to 10 guests (placeholder) &middot; Check-in 2:00 PM, check-out 12:00 PM (placeholder)</p>
+  </div>
+</footer>
+<script type="module" src="app.js"></script>
+</body>
+</html>
