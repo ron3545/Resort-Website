@@ -6,6 +6,7 @@
   --gold: #c9a24a;
   --wood: #5a3d2b;
   --cream: #fbf7ee;
+  --ink: #3b2618;
   --sand: #f1e9d6;
   --serif: Georgia, "Times New Roman", serif;
   --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -27,8 +28,8 @@ a { color: var(--blue); }
 
 .btn { display: inline-block; background: var(--blue); color: #fff; padding: .7rem 1.4rem; border: 0; border-radius: 999px; font: 600 1rem var(--sans); text-decoration: none; cursor: pointer; }
 .btn:hover { background: var(--blue-dark); }
-.btn-gold { background: var(--gold); color: var(--wood); padding: .9rem 2rem; font-size: 1.1rem; }
-.btn-gold:hover { background: #b88f38; }
+.btn-gold { background: var(--gold); color: var(--ink); padding: .9rem 2rem; font-size: 1.1rem; }
+.btn-gold:hover { background: #d6b565; }
 .link-btn { background: none; border: 0; padding: 0; font: .85rem var(--sans); color: var(--wood); text-decoration: underline; cursor: pointer; }
 
 .site-header { position: sticky; top: 0; z-index: 10; background: var(--cream); border-bottom: 2px solid var(--gold); }
@@ -63,7 +64,7 @@ a { color: var(--blue); }
 #book input[type=text], #book input[type=email], #book input[type=tel], #book input[type=number] { display: block; width: 100%; margin-top: .3rem; padding: .6rem; font: 1rem var(--sans); border: 1px solid #bba98f; border-radius: 6px; }
 #book label.radio { font-weight: 400; margin-bottom: .5rem; }
 #book fieldset { border: 1px solid #bba98f; border-radius: 6px; margin: 0 0 1rem; }
-.demo-label { display: inline-block; background: var(--gold); color: var(--wood); font-weight: 700; padding: .25rem .75rem; border-radius: 4px; }
+.demo-label { display: inline-block; background: var(--gold); color: var(--ink); font-weight: 700; padding: .25rem .75rem; border-radius: 4px; }
 #range-summary { min-height: 1.5em; font-weight: 600; }
 
 .site-footer { background: var(--wood); color: var(--cream); padding-block: 2.5rem; }
