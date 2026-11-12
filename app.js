@@ -24,7 +24,7 @@ let memory = []; // fallback when localStorage is unavailable
 export function loadBookings() {
   try {
     const v = JSON.parse(localStorage.getItem(KEY) || "[]");
-    return Array.isArray(v) ? v : [];
+    return [...new Set([...memory, ...(Array.isArray(v) ? v : [])])];
   } catch {
     return memory;
   }
@@ -97,6 +97,7 @@ function init() {
   }
 
   function render() {
+    const focusId = document.activeElement?.closest("#calendar") && (document.activeElement.id || document.activeElement.dataset.date);
     const next = new Date(Date.UTC(view.getUTCFullYear(), view.getUTCMonth() + 1, 1));
     cal.replaceChildren();
     cal.innerHTML = `<div class="cal-nav"><button type="button" id="prev" aria-label="Previous month">&larr;</button><button type="button" id="next" aria-label="Next month">&rarr;</button></div>`;
@@ -105,6 +106,7 @@ function init() {
     wrap.className = "months";
     wrap.append(monthEl(view), monthEl(next));
     cal.append(wrap);
+    if (focusId) (cal.querySelector(`#${CSS.escape(focusId)}, [data-date="${focusId}"]`))?.focus();
   }
 
   const shift = (n) => { view = new Date(Date.UTC(view.getUTCFullYear(), view.getUTCMonth() + n, 1)); render(); };
@@ -122,7 +124,7 @@ function init() {
       return render();
     }
     if (nightsBetween(checkIn, d) <= 0) {
-      summary.textContent = "Check-out must be after check-in. Pick a later date, or click again to restart.";
+      summary.textContent = `Check-in ${checkIn}. Check-out must be after check-in. Pick a later date.`;
       return;
     }
     if (!isRangeFree(checkIn, d, taken())) {
