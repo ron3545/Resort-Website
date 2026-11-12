@@ -55,8 +55,9 @@ function init() {
   const $ = (id) => document.getElementById(id);
   const cal = $("calendar"), summary = $("range-summary"), form = $("booking-form");
   const pay = $("pay-step"), confirm = $("confirm-step");
-  const t = new Date();
-  const today = `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, "0")}-${String(t.getDate()).padStart(2, "0")}`;
+  const today = new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Manila" });
+  const fmt = (d) => new Date(d + "T00:00:00Z").toLocaleDateString("en-PH", { dateStyle: "medium", timeZone: "UTC" });
+  document.querySelectorAll("[data-villa]").forEach((el) => { el.textContent = VILLA[el.dataset.villa]; });
   let view = new Date(Date.UTC(+today.slice(0, 4), +today.slice(5, 7) - 1, 1));
   let checkIn = null, checkOut = null;
 
@@ -99,7 +100,6 @@ function init() {
   function render() {
     const focusId = document.activeElement?.closest("#calendar") && (document.activeElement.id || document.activeElement.dataset.date);
     const next = new Date(Date.UTC(view.getUTCFullYear(), view.getUTCMonth() + 1, 1));
-    cal.replaceChildren();
     cal.innerHTML = `<div class="cal-nav"><button type="button" id="prev" aria-label="Previous month">&larr;</button><button type="button" id="next" aria-label="Next month">&rarr;</button></div>`;
     cal.querySelector("#prev").disabled = view <= new Date(Date.UTC(+today.slice(0, 4), +today.slice(5, 7) - 1, 1));
     const wrap = document.createElement("div");
@@ -120,11 +120,11 @@ function init() {
     hideSteps();
     if (!checkIn || checkOut) {
       checkIn = d; checkOut = null;
-      summary.textContent = `Check-in ${d}. Now pick your check-out date.`;
+      summary.textContent = `Check-in ${fmt(d)}. Now pick your check-out date.`;
       return render();
     }
     if (nightsBetween(checkIn, d) <= 0) {
-      summary.textContent = `Check-in ${checkIn}. Check-out must be after check-in. Pick a later date.`;
+      summary.textContent = `Check-in ${fmt(checkIn)}. Check-out must be after check-in. Pick a later date.`;
       return;
     }
     if (!isRangeFree(checkIn, d, taken())) {
@@ -133,7 +133,7 @@ function init() {
     }
     checkOut = d;
     const n = nightsBetween(checkIn, checkOut);
-    summary.textContent = `${checkIn} to ${checkOut}: ${n} night${n > 1 ? "s" : ""}, total ${peso(totalPrice(n, VILLA.rate))}`;
+    summary.textContent = `${fmt(checkIn)} to ${fmt(checkOut)}: ${n} night${n > 1 ? "s" : ""}, total ${peso(totalPrice(n, VILLA.rate))}`;
     form.hidden = false;
     render();
   });
@@ -157,11 +157,13 @@ function init() {
     const c = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", r = crypto.getRandomValues(new Uint8Array(6));
     $("ref").textContent = "BV-" + Array.from(r, (x) => c[x % 36]).join("");
     saveBooking(checkIn, checkOut);
+    $("confirm-summary").textContent = summary.textContent;
     checkIn = checkOut = null;
     summary.textContent = "";
     form.reset();
     form.hidden = pay.hidden = true;
     confirm.hidden = false;
+    confirm.focus();
     render();
   });
 

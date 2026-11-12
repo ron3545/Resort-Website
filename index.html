@@ -56,8 +56,8 @@
       <li>Bedroom with queen bed and two bunk beds</li>
       <li>Bright living area</li>
       <li>Terrace with garden view</li>
-      <li>Up to 10 guests (placeholder)</li>
-      <li>Check-in 2:00 PM / check-out 12:00 PM (placeholder)</li>
+      <li>Up to <span data-villa="maxGuests">10</span> guests (placeholder)</li>
+      <li>Check-in <span data-villa="checkIn">2:00 PM</span> / check-out <span data-villa="checkOut">12:00 PM</span> (placeholder)</li>
     </ul>
   </section>
 
@@ -65,7 +65,7 @@
     <div class="wrap section">
       <h2>Book your stay</h2>
       <p class="lead">₱15,000 per night for the whole villa. Pick your check-in and check-out dates.</p>
-      <div id="calendar"></div>
+      <div id="calendar"><p>Loading calendar&hellip; If nothing appears, open the site from a web address (not by double-clicking the file).</p></div>
       <p id="range-summary" aria-live="polite"></p>
 
       <form id="booking-form" hidden>
@@ -89,8 +89,9 @@
         <button class="btn" type="button" id="pay-btn">Pay</button>
       </div>
 
-      <div id="confirm-step" hidden>
+      <div id="confirm-step" hidden tabindex="-1">
         <h3>Booking confirmed (demo)</h3>
+        <p id="confirm-summary"></p>
         <p>Your reference number: <strong id="ref"></strong></p>
       </div>
 
@@ -102,9 +103,9 @@
 <footer class="site-footer">
   <div class="wrap">
     <p class="logo">Bacaress Villa</p>
-    <p>Location: Philippines, exact address to be announced (placeholder)</p>
-    <p>Contact: +63 900 000 0000 (placeholder)</p>
-    <p>Up to 10 guests (placeholder) &middot; Check-in 2:00 PM, check-out 12:00 PM (placeholder)</p>
+    <p>Location: <span data-villa="location">Philippines, exact address to be announced (placeholder)</span></p>
+    <p>Contact: <span data-villa="contact">+63 900 000 0000 (placeholder)</span></p>
+    <p>Up to <span data-villa="maxGuests">10</span> guests (placeholder) &middot; Check-in <span data-villa="checkIn">2:00 PM</span>, check-out <span data-villa="checkOut">12:00 PM</span> (placeholder)</p>
   </div>
 </footer>
 <script type="module" src="app.js"></script>

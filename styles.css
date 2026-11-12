@@ -31,6 +31,7 @@ a { color: var(--blue); }
 .btn-gold { background: var(--gold); color: var(--ink); padding: .9rem 2rem; font-size: 1.1rem; }
 .btn-gold:hover { background: #d6b565; }
 .link-btn { background: none; border: 0; padding: 0; font: .85rem var(--sans); color: var(--wood); text-decoration: underline; cursor: pointer; }
+#reset-demo { min-height: 44px; padding: .6rem .8rem; }
 
 .site-header { position: sticky; top: 0; z-index: 10; background: var(--cream); border-bottom: 2px solid var(--gold); }
 .bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: .7rem; }
@@ -86,6 +87,6 @@ a { color: var(--blue); }
 .day.taken:not(:disabled) { cursor: pointer; }
 .day.past { background: transparent; color: #6b5d52; opacity: .6; cursor: not-allowed; }
 .day.selected { background: var(--gold); color: var(--ink); border-color: var(--ink); font-weight: 700; }
+.day.out { background: var(--gold); color: var(--ink); border-color: var(--ink); font-weight: 700; }
 .day:focus-visible, .cal-nav button:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
-#range-summary { font-weight: 600; }
 #form-msg { color: #8a1c1c; font-weight: 600; margin: 0; }
